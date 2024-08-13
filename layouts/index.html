@@ -3,7 +3,7 @@
 <div class="dream-grid">
   {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
   {{ range $paginator.Pages }}
-  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column">
+  <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-4 dream-column animate-in slide-in-from-top-20 ease-in-out">
     {{ .Render "summary" }}
   </div>
   {{ end }}
