@@ -1,9 +1,13 @@
 .DS_Store
-
 node_modules
-
 docs/.next
 docs/out
+# output
+public
+# themes
+themes/*
+!themes/.gitkeep
 
-
-static
+# hugo
+resources
+.hugo_build.lock
