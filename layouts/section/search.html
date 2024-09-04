@@ -4,7 +4,12 @@
 
 {{ define "main" }}
 
-<div class="mt-8 lg:mt-12 px-4" x-data="{
+{{ if site.Params.zenMode }}
+<div class="max-w-[65ch] mt-8 lg:mt-12 mx-auto px-4"
+{{ else }}
+<div class="mt-8 lg:mt-12 px-4"
+{{ end }}
+x-data="{
   search: '',
   get posts() { return this.search !== '' ? window.fuse.search(this.search) : [] },
 }">
@@ -26,7 +31,7 @@
             <template x-if="post.item.avatar">
             <div class="avatar mr-1">
               <div class="w-8 rounded-full">
-                <img class="my-0" :src="post.item.avatar" />
+                <img class="my-0" :src="post.item.avatar" :alt="post.item.author" />
               </div>
             </div>
             </template>
@@ -63,7 +68,7 @@
 {{ $data = $data | append (dict "title" .Title "url" .RelPermalink "author" .Params.author "avatar" .Params.avatar "categories" .Params.categories "tags" .Params.tags "description" (.Summary | emojify | safeHTML) "readingTime" .ReadingTime) }}
 {{ end }}
 
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha256-42IbU8t3tOwwbexB7ZVRHm3YDRf65aBPPjRtIUufj5I=" crossorigin="anonymous"></script>
 <script>
   var fuseData = {{ $data }};
   var fuseOptions = {
