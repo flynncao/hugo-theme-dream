@@ -34,6 +34,9 @@ utterancesRepo = "g1eny0ung/g1eny0ung.github.io"
 # LEANCLOUD_APP_ID = ""
 # LEANCLOUD_APP_KEY = ""
 
+# waline = true
+# walineServer = ""
+
 email = "g1enyy0ung@gmail.com"
 
 siteStartYear = 2016
@@ -51,8 +54,7 @@ stickyNav = true
 showTableOfContents = true
 showSummaryCoverInPost = true
 showPrevNextPost = true
-
-# [params.valineConfig]
+# reorderShares = ["x", "facebook", "whatsapp"]
 
 [params.advanced]
 # customCSS = ["css/custom.css"]
@@ -139,13 +141,14 @@ Enable RSS.
 
 ### utterancesRepo
 
-Utterances is a lightweight comments widget built on GitHub Issues. By setting `utterancesRepo`, each post will have a comment section powered by GitHub Issues.
+Utterances is a lightweight comments widget built on GitHub Issues.
+By setting `utterancesRepo`, each post will have a comment section powered by GitHub Issues.
 
 View https://utteranc.es for more details.
 
 ### valine
 
-Valine is a fast, simple & efficient Leancloud based no back end comment system.
+Valine is a fast, simple & efficient LeanCloud based no backend comment system.
 You can view https://valine.js.org/en/index.html for more details.
 
 To make it work, you still need to set these two parameters:
@@ -156,16 +159,37 @@ LEANCLOUD_APP_ID = ""
 LEANCLOUD_APP_KEY = ""
 ```
 
-You can also use `[params.valineConfig]` to customize Valine comments. For example:
+To customize Valine, you can create a partial file named `valine.html` in the `layouts/partials` folder.
+Here is an [example](https://github.com/g1eny0ung/blog/blob/master/layouts/partials/valine.html).
+
+<Callout type="info">
+You still need to set the `valine` parameter to `true` to enable Valine when using a custom partial file.
+
+Other related parameters will be ingored.
+</Callout>
+
+### waline
+
+Waline is a simple comment system with backend support fork from Valine.
+You can view https://waline.js.org/en/ for more details.
+
+To enable Waline, you need to set the `waline` parameter to `true` and
+set the `walineServer` parameter to your Waline server address:
 
 ```toml
-[params.valineConfig]
-pageSize = 5
+waline = true
+walineServer = "https://your-waline-server.com"
 ```
 
-This will set the number of comments per page to 5.
+If you want to customize Waline,
+you can create a partial file named `waline.html` in the `layouts/partials` folder.
+Here is an [example](https://github.com/g1eny0ung/blog/blob/master/layouts/partials/waline.html).
 
-Refer to https://valine.js.org/en/configuration.html for the full list of configurations.
+<Callout type="info">
+You still need to set the `waline` parameter to `true` to enable Waline when using a custom partial file.
+
+Other related parameters will be ingored.
+</Callout>
 
 ### siteStartYear
 
@@ -200,10 +224,9 @@ reorderNavItems = ["search", "rss", "posts", "categories", "tags"]
 
 <Callout type="info">
 This parameter also allows you to remove the default navigation items.
-For example, you don't want to show the `rss` item, you can set the value as:
+For example, if you don't want to show the `rss` item, you can set the value as:
 
 `reorderNavItems = ["search", "posts", "categories", "tags"]`
-
 </Callout>
 
 For reordering custom navigation items, see [Custom Navbar Items](custom-nav-items.md).
@@ -242,6 +265,23 @@ Show summary cover image in the single post page.
 ### showPrevNextPost
 
 Show previous and next post links in the single post page.
+
+### reorderShares
+
+Same as [reorderNavItems](#reorderNavItems), reorder the share buttons in the single post page.
+
+This parameter is **an array of strings**, the default value is:
+
+```toml
+reorderShares = ["x", "facebook", "whatsapp"]
+```
+
+<Callout type="info">
+This parameter also allows you to remove the default share items.
+For example, if you don't want to show the `whatsapp` item, you can set the value as:
+
+`reorderShares = ["x", "facebook"]`
+</Callout>
 
 ## Advanced
 

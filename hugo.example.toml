@@ -35,6 +35,9 @@ headerTitle = "Hugo Theme Dream"
 # LEANCLOUD_APP_ID = ""
 # LEANCLOUD_APP_KEY = ""
 
+# waline = true
+# walineServer = ""
+
 # email = ""
 
 siteStartYear = 2016
@@ -52,10 +55,9 @@ siteStartYear = 2016
 # showTableOfContents = true
 # showSummaryCoverInPost = true
 # showPrevNextPost = true
+# reorderShares = ["x", "facebook", "whatsapp"]
 
 # [params.navItems]
-
-# [params.valineConfig]
 
 # [params.advanced]
 # customCSS = ["css/custom.css"]

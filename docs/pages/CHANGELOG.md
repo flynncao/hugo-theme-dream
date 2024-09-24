@@ -9,7 +9,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Add `valineConfig` param to customize Valine comments [#309](https://github.com/g1eny0ung/hugo-theme-dream/pull/309)
+- Add `reorderShares` param [#320](https://github.com/g1eny0ung/hugo-theme-dream/pull/320)
+
+## [3.8.1] - 2024-09-08
+
+### Fixed
+
+- Fix the cache issue of `commentSystems.html`
+- Add missing "about" translation to the Italian language file
+
+## [3.8.0] - 2024-09-07
+
+### Added
+
+- Valine comments can now be customized using a partial file [#311](https://github.com/g1eny0ung/hugo-theme-dream/pull/311)
+- Support [Waline](https://waline.js.org/en/) comments [#310](https://github.com/g1eny0ung/hugo-theme-dream/pull/310)
+
+### Changed
+
+- Upgrade Hugo minimum version to 0.97.0
 
 ### Deprecated
 
