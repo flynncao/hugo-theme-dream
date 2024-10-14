@@ -15,8 +15,22 @@
     {{ range site.Params.Advanced.customCSS }}
     <link rel="stylesheet" href="{{ . | relURL }}" />
     {{ end }}
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakana-widget-z@1.0.3/lib/sakana.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sakana-widget-z@1.0.3/lib/sakana.min.js"></script>
+		<style>
+		@media (max-width: 768px) {
+		  #sakana-widget {
+		    display: none;
+		  }
+		}
+		#sakana-widget {
+		  position: fixed;
+			bottom: 22px;
+			left: 50px;
+			z-index: 91;
+		}
+		</style>
   </head>
 
   <body x-data="{
@@ -26,7 +40,7 @@
     <div id="dream-global-bg"></div>
 
     {{ partial "nav.html" . }}
-
+		<div id="sakana-widget"></div>
     <div class="flip-container" :class="{ 'flip-it': flip }">
       <div class="flipper">
         <div class="front">
@@ -75,5 +89,11 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+    <script>
+      const takina = SakanaWidget.getCharacter('takina')
+      SakanaWidget.registerCharacter('takina-default', takina)
+      new SakanaWidget({ character: 'takina' }).mount('#sakana-widget')
+      console.log('SakanaWidget is ready!')
+    </script>
   </body>
 </html>
