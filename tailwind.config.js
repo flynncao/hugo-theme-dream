@@ -33,6 +33,9 @@ module.exports = {
           },
         },
       },
+      screens:{
+        '4xl': '2000px'
+      }
     },
   },
   safelist: ['dark:border-b'],
