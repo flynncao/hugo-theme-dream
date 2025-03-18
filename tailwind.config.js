@@ -1,16 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./layouts/**/*.html'],
   theme: {
     container: {
       center: true,
+      screens: {
+				sm: '100%',
+				md: '100%',
+				lg: '1800px',
+				xl: '2000px',
+			},
     },
     extend: {
       typography: {
         DEFAULT: {
           css: {
             blockquote: {
-              color: "var(--tw-prose-body)",
+              color: 'var(--tw-prose-body)',
               fontWeight: 'normal',
               fontStyle: 'normal',
             },
@@ -33,49 +38,6 @@ module.exports = {
           },
         },
       },
-      screens:{
-        '4xl': '2000px'
-      }
     },
-  },
-  safelist: ['dark:border-b'],
-  plugins: [ require('@tailwindcss/typography'), require('daisyui'), require('tailwindcss-animate')],
-  darkMode: ['selector'],
-  daisyui: {
-   themes: [
-      "light",
-      "dark",
-      "cupcake",
-      "bumblebee",
-      "emerald",
-      "corporate",
-      "synthwave",
-      "retro",
-      "cyberpunk",
-      "valentine",
-      "halloween",
-      "garden",
-      "forest",
-      "aqua",
-      "lofi",
-      "pastel",
-      "fantasy",
-      "wireframe",
-      "black",
-      "luxury",
-      "dracula",
-      "cmyk",
-      "autumn",
-      "business",
-      "acid",
-      "lemonade",
-      "night",
-      "coffee",
-      "winter",
-      "dim",
-      "nord",
-      "sunset",
-    ],
-    darkTheme: 'dim',
-  },
+  }
 }
